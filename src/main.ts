@@ -5,12 +5,10 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { RpcCustomExceptionFilter } from './common';
 
 async function bootstrap() {
-
+  
   const logger = new Logger('Main-Gateway');
   const app = await NestFactory.create(AppModule);
-
   app.setGlobalPrefix('api');
-
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
     forbidNonWhitelisted: true,
@@ -20,6 +18,6 @@ async function bootstrap() {
   await app.listen(envs.port);
 
 
-  logger.log(`App running in port ${envs.port}`)
+  logger.log(`App running in port ${envs.port}`);
 }
 bootstrap();

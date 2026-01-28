@@ -18,7 +18,7 @@ export class ProductsController {
   createProduct(
     @Body() createProductDto: CreateProductDto
   ){
-    return this.natsClient.send({cmd: 'create_product'},{...createProductDto});
+    return this.natsClient.send({cmd:'create_product'},{...createProductDto});
   }
 
   @Get()
