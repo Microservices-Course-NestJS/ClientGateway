@@ -21,7 +21,7 @@ export class OrdersController {
       )
       
     } catch (error) {
-      throw new RpcException(error)
+      throw new RpcException(error as any)
     }
   }
 
@@ -32,7 +32,7 @@ export class OrdersController {
         this.natsClient.send('findAllOrders', {...orderPaginationDto})
       )
     } catch (error) {
-      throw new RpcException(error)
+      throw new RpcException(error as any)
     }
   }
 
@@ -44,7 +44,7 @@ export class OrdersController {
       );
       return order
     } catch (error) {
-      throw new RpcException(error);
+      throw new RpcException(error as any);
     }
   }
 
@@ -59,7 +59,7 @@ export class OrdersController {
       );
       return orders
     } catch (error) {
-      throw new RpcException(error);
+      throw new RpcException(error as any);
     }
   }
   @Patch(':id')
@@ -73,7 +73,7 @@ export class OrdersController {
       );
       return order;
     } catch (error) {
-      throw new RpcException(error)      
+      throw new RpcException(error as any)      
     }
   }
 }
